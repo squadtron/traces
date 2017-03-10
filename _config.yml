@@ -25,16 +25,20 @@ twitter_username: jekyllrb
 github_username:  jekyll
 
 
+# collections:
+#   - medical_history_museum_collection
+#   - dental_museum_collection
+
 collections:
   medical_history_museum_collection:
     output: true
     permalink: /medical-history-museum/:title
-    relative_directory: /collections/_medical_history_museum_collection
+    #relative_directory: _content/_medical_history_museum_collection
     
   dental_museum_collection:
     output: true
     permalink: /dental-museum/:title
-    relative_directory: /collections/_dental_history_museum_collection
+    #relative_directory: /_content/dental_history_museum_collection
     
 # Build settings
 markdown: kramdown
