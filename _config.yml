@@ -42,6 +42,8 @@ collections:
   buildings:
     output: true
     permalink: /buildings/:title
+    values:
+      layout: 'building'	
     #relative_directory: /_content/dental_history_museum_collection
     
 # Build settings

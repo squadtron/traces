@@ -1,5 +1,6 @@
 ---
-title: 'Dental cheese'
+title: 'mhm object'
+layout: object
 ---
 
 Then something in the body

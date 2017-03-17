@@ -6,11 +6,43 @@
   <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
 
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
   <link rel="stylesheet" href="{{ "/assets/style.min.css" | relative_url }}">
+  
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
   
+  <!-- should remove this shortly after styling menus-->
+  <link type="text/css" rel="stylesheet" href="/assets/demo.css" />
+  <link type="text/css" rel="stylesheet" href="/assets/jquery.mmenu.all.css" />
+
+		<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.0.js"></script>
+		<script type="text/javascript" src="/assets/jquery.mmenu.all.min.js"></script>
+		<script type="text/javascript">
+         jQuery(document).ready(function( $ ) {
+            $("#menu").mmenu({
+               "offCanvas": {
+                  "position": "right"
+               },
+               "extensions": [
+                  "theme-dark"
+               ],
+               "counters": true,
+               "navbars": [
+                  {
+                     "position": "bottom",
+                     "content": [
+                        "<a class='fa fa-envelope' href='#/'>email</a>",
+                        "<a class='fa fa-twitter' href='#/'>twitter</a>",
+                        "<a class='fa fa-facebook' href='#/'>facebook</a>"
+                     ]
+                  }
+               ]
+            });
+         });
+      </script>  
   {% if jekyll.environment == 'production' and site.google_analytics %}
   {% include google-analytics.html %}
   {% endif %}
 </head>
+
