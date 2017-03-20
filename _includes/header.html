@@ -1,6 +1,15 @@
 <header class="header" role="banner">
-	<a href="#menu"></a>
-  <div class="wrapper">
+	<div class="wrapper">
+	  
+	<button id="back" onclick="goBack()">Back</button>
+	
+	<a class="site-title" href="{{ "/" | relative_url}}">{{ site.title | escape }}</a>
+	
+	<div class="hamburger-wrapper">
+		<a href="#menu" class="c-hamburger c-hamburger--htx" for="mobileNavToggle">
+			<span>toggle menu</span>
+		</a>
+	</div>
   
             
 <!--
@@ -24,7 +33,7 @@
           {% endif %}
         {% endfor %}
       </div>
-    </nav>
+    </nav> 
 -->
 
 

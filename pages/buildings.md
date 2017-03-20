@@ -1,7 +1,8 @@
 ---
-layout: page
+layout: building-list
 title: Buildings Listing
 permalink: /buildings/
+menu-weight: 1
 ---
 This will be the buildings listing page, hopefully ordered by proximity
 

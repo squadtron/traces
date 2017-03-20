@@ -1,3 +1,282 @@
+/* -----------------------------------------------------------------------------
+
+  HAMBURGER ICONS COMPONENT
+  
+----------------------------------------------------------------------------- */
+input[name=mobile-nav-toggle] {
+  /* For mobile, it's typically better to position checkbox on top of clickable
+      area and turn opacity to 0 instead. */ }
+
+/**
+ * Toggle Switch Globals
+ *
+ * All switches should take on the class `c-hamburger` as well as their
+ * variant that will give them unique properties. This class is an overview
+ * class that acts as a reset for all versions of the icon.
+ */
+.c-hamburger {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 28px;
+  height: 24px;
+  font-size: 0;
+  text-indent: -9999px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-radius: none;
+  border: none;
+  cursor: pointer;
+  -webkit-transition: background 0.2s;
+       -o-transition: background 0.2s;
+          transition: background 0.2s; }
+
+.c-hamburger:focus {
+  outline: none; }
+
+.c-hamburger span {
+  display: block;
+  position: absolute;
+  top: 10.5px;
+  left: 0px;
+  right: 0px;
+  height: 3px;
+  background: #fff; }
+
+.c-hamburger span::before, .c-hamburger span::after {
+  position: absolute;
+  display: block;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  content: ""; }
+
+.c-hamburger span::before {
+  top: -9px; }
+
+.c-hamburger span::after {
+  bottom: -9px; }
+
+/**
+ * Style 1
+ *
+ * Rotating hamburger icon (rot), that simply rotates 90 degrees when activated.
+ * Nothing too fancy, simple transition.
+ */
+/*
+	.c-hamburger--rot {
+  background-color: rgb(40,170,220);
+}
+
+.c-hamburger--rot span {
+  transition: transform $button-transistion-duration;
+}
+
+// active state, i.e. menu open 
+
+.c-hamburger--rot.is-active {
+  background-color: darken(rgb(40,170,220), 20%);
+}
+
+.c-hamburger--rot.is-active span {
+  transform: rotate(90deg);
+}
+*/
+/**
+ * Style 2
+ * 
+ * Hamburger to "x" (htx). Takes on a hamburger shape, bars slide
+ * down to center and transform into an "x".
+ */
+.c-hamburger--htx span {
+  -webkit-transition: background 0s 0.2s;
+       -o-transition: background 0s 0.2s;
+          transition: background 0s 0.2s; }
+
+.c-hamburger--htx span::before, .c-hamburger--htx span::after {
+  -webkit-transition-duration: 0.2s, 0.2s;
+       -o-transition-duration: 0.2s, 0.2s;
+          transition-duration: 0.2s, 0.2s;
+  -webkit-transition-delay: 0.2s, 0s;
+       -o-transition-delay: 0.2s, 0s;
+          transition-delay: 0.2s, 0s; }
+
+.c-hamburger--htx span::before {
+  -webkit-transition-property: top, -webkit-transform;
+       -o-transition-property: top, -o-transform;
+          transition-property: top, transform; }
+
+.c-hamburger--htx span::after {
+  -webkit-transition-property: bottom, -webkit-transform;
+       -o-transition-property: bottom, -o-transform;
+          transition-property: bottom, transform; }
+
+/*.c-hamburger--htx.is-active {
+  background-color: darken(rgb(255,50,100), 20%);
+}
+
+//.menu-open-fool .c-hamburger--htx span,
+.c-hamburger--htx.is-active span {
+  background: none;
+}
+
+//.menu-open-fool .c-hamburger--htx span::before,
+.c-hamburger--htx.is-active span::before {
+  top: 0;
+  transform: rotate(45deg);
+  -webkit-transform: translateZ(0);
+}
+
+//.menu-open-fool .c-hamburger--htx span::after,
+.c-hamburger--htx.is-active span::after {
+  bottom: 0;
+  transform: rotate(-45deg);
+  -webkit-transform: translateZ(0);
+}
+
+//.menu-open-fool .c-hamburger--htx span::before,
+//.menu-open-fool .c-hamburger--htx span::after,
+.c-hamburger--htx.is-active span::before,
+.c-hamburger--htx.is-active span::after {
+  transition-delay: 0s, $button-transistion-duration;
+}
+*/
+/*#mobileNavToggle:checked ~ #page .bar{
+//	border: 1px dashed red !important;
+}*/
+.mm-opening .c-hamburger--htx span {
+  background: none; }
+.mm-opening .c-hamburger--htx span::before {
+  top: 0;
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+       -o-transform: rotate(45deg);
+          transform: rotate(45deg); }
+.mm-opening .c-hamburger--htx span::after {
+  bottom: 0;
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+       -o-transform: rotate(-45deg);
+          transform: rotate(-45deg); }
+.mm-opening .c-hamburger--htx span::before, .mm-opening .c-hamburger--htx span::after {
+  -webkit-transition-delay: 0s, 0.2s;
+       -o-transition-delay: 0s, 0.2s;
+          transition-delay: 0s, 0.2s; }
+
+/**
+ * Style 3
+ *
+ * Hamburger to left-arrow (htla). Hamburger menu transforms to a left-pointing
+ * arrow. Usually indicates an off canvas menu sliding in from left that
+ * will be close on re-click of the icon.
+ */
+/*
+.c-hamburger--htla {
+  background-color: rgb(50,220,100);
+}
+
+.c-hamburger--htla span {
+  transition: transform $button-transistion-duration;
+}
+
+.c-hamburger--htla span::before,
+.c-hamburger--htla span::after {
+  
+}
+
+.c-hamburger--htla span::before {
+  transform-origin: top right;
+  transition: transform $button-transistion-duration, width $button-transistion-duration, top $button-transistion-duration;
+}
+
+.c-hamburger--htla span::after {
+  transform-origin: bottom right;
+  transition: transform $button-transistion-duration, width $button-transistion-duration, bottom $button-transistion-duration;
+}
+
+// active state, i.e. menu open
+.c-hamburger--htla.is-active {
+  background-color: darken(rgb(50,220,100), 20%);
+}
+
+.c-hamburger--htla.is-active span {
+  transform: rotate(180deg);
+}
+
+.c-hamburger--htla.is-active span::before,
+.c-hamburger--htla.is-active span::after {
+  width: 50%;
+}
+
+.c-hamburger--htla.is-active span::before {
+  top: 0;
+  transform: translateX($button-width/2 - $button-pad + $bar-thickness) translateY($bar-thickness/2) rotate(45deg);
+}
+
+.c-hamburger--htla.is-active span::after {
+  bottom: 0;
+  transform: translateX($button-width/2 - $button-pad + $bar-thickness) translateY(-$bar-thickness/2) rotate(-45deg);
+}*/
+/**
+ * Style 4
+ *
+ * Hamburger to right-arrow (htra). Hamburger menu transforms to a
+ * right-pointing arrow. Usually indicates an off canvas menu sliding in from 
+ * right that will be close on re-click of the icon.
+ */
+/*.c-hamburger--htra {
+  background-color: rgb(255,150,80);
+}
+
+.c-hamburger--htra span {
+  transition: transform $button-transistion-duration;
+}
+
+.c-hamburger--htra span::before,
+.c-hamburger--htra span::after {
+  
+}
+
+.c-hamburger--htra span::before {
+  transform-origin: top left;
+  transition: transform $button-transistion-duration, width $button-transistion-duration, top $button-transistion-duration;
+}
+
+.c-hamburger--htra span::after {
+  transform-origin: bottom left;
+  transition: transform $button-transistion-duration, width $button-transistion-duration, bottom $button-transistion-duration;
+}
+
+// active state, i.e. menu open
+
+.c-hamburger--htra.is-active {
+  background-color: darken(rgb(255,150,80), 20%);
+}
+
+.c-hamburger--htra.is-active span {
+  transform: rotate(180deg);
+}
+
+.c-hamburger--htra.is-active span::before,
+.c-hamburger--htra.is-active span::after {
+  width: 50%;
+}
+
+.c-hamburger--htra.is-active span::before {
+  top: 0;
+  transform: translateX(-$bar-thickness) translateY($bar-thickness/2) rotate(-45deg);
+}
+
+.c-hamburger--htra.is-active span::after {
+  bottom: 0;
+  transform: translateX(-$bar-thickness) translateY(-$bar-thickness/2) rotate(45deg);
+}*/
 /**
  * Reset some basic elements
  */
@@ -9,8 +288,8 @@ body, h1, h2, h3, h4, h5, h6, p, blockquote, pre, hr, dl, dd, ol, ul, figure {
  * Basic styling
  */
 body {
-  font: 400 16px/1.5 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color: #111;
+  font: 400 14px/1.5 Arial, 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #666;
   background-color: #fdfdfd;
   -webkit-text-size-adjust: 100%;
   -webkit-font-feature-settings: "kern" 1;
@@ -41,7 +320,7 @@ figure > img {
   display: block; }
 
 figcaption {
-  font-size: 14px; }
+  font-size: 12.25px; }
 
 /**
  * Lists
@@ -67,7 +346,7 @@ a {
   a:visited {
     color: #1756a9; }
   a:hover {
-    color: #111;
+    color: #666;
     text-decoration: underline; }
 
 /**
@@ -140,64 +419,90 @@ pre {
 /**
  * Site header
  */
-.site-header {
-  border-top: 5px solid #424242;
-  border-bottom: 1px solid #e8e8e8;
+/*.site-header {
+  border-top: 5px solid $grey-color-dark;
+  border-bottom: 1px solid $grey-color-light;
   min-height: 56px;
-  position: relative; }
 
-.site-title {
+  // Positioning context for the mobile navigation icon
+  position: relative;
+}*/
+/*.site-title {
   font-size: 26px;
   font-weight: 300;
   line-height: 56px;
   letter-spacing: -1px;
   margin-bottom: 0;
-  float: left; }
-  .site-title, .site-title:visited {
-    color: #424242; }
+  float: left;
 
-.site-nav {
+  &,
+  &:visited {
+    color: $grey-color-dark;
+  }
+}
+*/
+/*.site-nav {
   float: right;
-  line-height: 56px; }
-  .site-nav .menu-icon {
-    display: none; }
-  .site-nav .page-link {
-    color: #111;
-    line-height: 1.5; }
-    .site-nav .page-link:not(:last-child) {
-      margin-right: 20px; }
-  @media screen and (max-width: 600px) {
-    .site-nav {
-      position: absolute;
-      top: 9px;
-      right: 15px;
-      background-color: #fdfdfd;
-      border: 1px solid #e8e8e8;
-      border-radius: 5px;
-      text-align: right; }
-      .site-nav .menu-icon {
-        display: block;
-        float: right;
-        width: 36px;
-        height: 26px;
-        line-height: 0;
-        padding-top: 10px;
-        text-align: center; }
-        .site-nav .menu-icon > svg path {
-          fill: #424242; }
-      .site-nav .trigger {
-        clear: both;
-        display: none; }
-      .site-nav:hover .trigger {
-        display: block;
-        padding-bottom: 5px; }
-      .site-nav .page-link {
-        display: block;
-        padding: 5px 10px;
-        margin-left: 20px; }
-        .site-nav .page-link:not(:last-child) {
-          margin-right: 0; } }
+  line-height: 56px;
 
+  .menu-icon {
+    display: none;
+  }
+
+  .page-link {
+    color: $text-color;
+    line-height: $base-line-height;
+
+    // Gaps between nav items, but not on the last one
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+
+  @include media-query($on-palm) {
+    position: absolute;
+    top: 9px;
+    right: $spacing-unit / 2;
+    background-color: $background-color;
+    border: 1px solid $grey-color-light;
+    border-radius: 5px;
+    text-align: right;
+
+    .menu-icon {
+      display: block;
+      float: right;
+      width: 36px;
+      height: 26px;
+      line-height: 0;
+      padding-top: 10px;
+      text-align: center;
+
+      > svg path {
+        fill: $grey-color-dark;
+      }
+    }
+
+    .trigger {
+      clear: both;
+      display: none;
+    }
+
+    &:hover .trigger {
+      display: block;
+      padding-bottom: 5px;
+    }
+
+    .page-link {
+      display: block;
+      padding: 5px 10px;
+
+      &:not(:last-child) {
+        margin-right: 0;
+      }
+      margin-left: 20px;
+    }
+  }
+}*/
 /**
  * Site footer
  */
@@ -265,7 +570,7 @@ pre {
     margin-bottom: 30px; }
 
 .post-meta {
-  font-size: 14px;
+  font-size: 12.25px;
   color: #828282; }
 
 .post-link {
@@ -303,3 +608,54 @@ pre {
     @media screen and (max-width: 800px) {
       .post-content h4 {
         font-size: 18px; } }
+
+#page {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+
+.wrapper {
+  position: relative; }
+
+.header {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: #777;
+  height: 60px; }
+  .header > .wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+  .header button#back {
+    background: none;
+    border: none;
+    color: #fff;
+    text-transform: uppercase; }
+  .header .site-title {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 60px; }
+  .header .hamburger-wrapper {
+    position: absolute;
+    top: 15px;
+    right: 15px; }
+
+footer {
+  color: #fff;
+  background: #777;
+  margin-top: auto; }

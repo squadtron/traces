@@ -1,19 +1,54 @@
 <nav id="menu">
 	<ul>
-		<li><a href="#">Home</a></li>
-		<li><span>About us</span>
+		{% assign sorted_pages = site.pages | sort:"menu-weight" %}
+		{% for node in sorted_pages %}
+		
+		{% comment %} Generate Buildings List {% endcomment %}
+		{% if node.title == 'Buildings Listing' %}
+		<li>
+			<a href="{{ node.url | prepend: site.baseurl }}">{{ node.title }}</a>
 			<ul>
-				<li><a href="#about/history">History</a></li>
-				<li><span>The team</span>
-					<ul>
-						<li><a href="#about/team/management">Management</a></li>
-						<li><a href="#about/team/sales">Sales</a></li>
-						<li><a href="#about/team/development">Development</a></li>
-					</ul>
+				{% for buildings in site.buildings %}
+				<li>
+					<a href="{{ buildings.url | prepend: site.baseurl }}">{{ buildings.title }}</a>
 				</li>
-				<li><a href="#about/address">Our address</a></li>
+				{% endfor %}
 			</ul>
-		</li>
-		<li><a href="#contact">Contact</a></li>
-	</ul>
+		</li>	
+		
+		{% comment %} Generate Medical History Museum Links {% endcomment %}
+		{% elsif node.title == 'Medical History Museum' %}		
+		<li>
+			<a href="{{ '/buildings/medical-history-museum' | prepend: site.baseurl }}">{{ node.title }}</a>
+			<ul>
+				{% for medical_history_museum_collection in site.medical_history_museum_collection %}
+				<li>
+					<a href="{{ medical_history_museum_collection.url | prepend: site.baseurl }}">{{ medical_history_museum_collection.title }}</a>
+				</li>
+				{% endfor %}
+			</ul>
+		</li>	
+
+		{% comment %} Generate List of Dental Museum Objects {% endcomment %}
+		{% elsif node.title == 'Dental Museum' %}		
+		<li>
+			<a href="{{ '/buildings/dental-museum' | prepend: site.baseurl }}">{{ node.title }}</a>
+			<ul>
+				{% for dental_museum_collection in site.dental_museum_collection %}
+				<li>
+					<a href="{{ dental_museum_collection.url | prepend: site.baseurl }}">{{ dental_museum_collection.title }}</a>
+				</li>
+				{% endfor %}
+			</ul>
+		</li>	
+
+		
+		{% else %}		
+		<li><a href="{{ node.url | prepend: site.baseurl }}">
+			{{ node.title }}
+		</a></li>
+		
+		{% endif %}
+		{% endfor %}
+    </ul>
 </nav>
